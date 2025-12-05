@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>给 吴新怡 的小宇宙</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 字体 & 动画 CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root{
+            --theme:#ff9ebb;          /* 主色调：粉红 */
+            --bg:#fff7f9;             /* 背景浅粉 */
+        }
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{
+            font-family: 'ZCOOL KuaiLe', cursive;
+            background:var(--bg);
+            color:#555;
+            overflow-x:hidden;
+        }
+        /* 1. 顶部横幅 + 大标题 */
+        header{
+            height:100vh;
+            background:url(https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?auto=format&fit=crop&w=1350&q=80) center/cover no-repeat;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            position:relative;
+        }
+        header::after{  /* 蒙版 */
+            content:'';
+            position:absolute;
+            inset:0;
+            background:rgba(0,0,0,.35);
+        }
+        .hero{
+            position:relative;
+            z-index:2;
+            text-align:center;
+            color:#fff;
+        }
+        .hero h1{
+            font-size:calc(2.5rem + 3vw);
+            letter-spacing:3px;
+            animation:fadeInDown 1.5s both;
+        }
+        .hero p{
+            font-size:1.4rem;
+            margin:15px 0 30px;
+            animation:fadeInUp 1.8s both;
+        }
+        .hero button{
+            background:var(--theme);
+            border:none;
+            color:#fff;
+            padding:12px 30px;
+            border-radius:30px;
+            font-size:1.1rem;
+            cursor:pointer;
+            transition:.3s;
+        }
+        .hero button:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.2);}
+
+        /* 2. 时间轴 */
+        section{
+            max-width:800px;
+            margin:80px auto;
+            padding:0 20px;
+        }
+        h2{
+            text-align:center;
+            font-size:2rem;
+            margin-bottom:40px;
+            color:var(--theme);
+        }
+        .timeline{
+            position:relative;
+            padding:20px 0;
+        }
+        .timeline::before{  /* 竖线 */
+            content:'';
+            position:absolute;
+            left:50%;
+            top:0;
+            bottom:0;
+            width:2px;
+            background:var(--theme);
+            transform:translateX(-50%);
+        }
+        .item{
+            position:relative;
+            width:50%;
+            padding:20px 40px;
+            opacity:0;
+            transform:translateY(40px);
+            transition:.6s;
+        }
+        .item.show{opacity:1;transform:translateY(0);}
+        .item:nth-child(odd){left:0;text-align:right;}
+        .item:nth-child(even){left:50%;text-align:left;}
+        .item h3{margin-bottom:8px;font-size:1.3rem;}
+        .item p{font-size:1rem;color:#777;}
+
+        /* 3. 照片墙 */
+        .gallery{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:15px;
+        }
+        .gallery img{
+            width:100%;
+            border-radius:10px;
+            transition:.4s;
+            cursor:pointer;
+        }
+        .gallery img:hover{transform:scale(1.08);}
+
+        /* 4. 留言板 */
+        .msg-board{
+            background:#fff;
+            border-radius:15px;
+            padding:30px;
+            box-shadow:0 5px 20px rgba(0,0,0,.05);
+        }
+        .msg-board textarea{
+            width:100%;
+            height:100px;
+            border:1px solid #ffd0dc;
+            border-radius:8px;
+            padding:10px;
+            font-size:1rem;
+            resize:none;
+        }
+        .msg-board button{
+            margin-top:15px;
+            background:var(--theme);
+            color:#fff;
+            border:none;
+            padding:10px 25px;
+            border-radius:20px;
+            cursor:pointer;
+        }
+        #msgs{
+            margin-top:20px;
+            max-height:200px;
+            overflow-y:auto;
+        }
+        #msgs div{
+            background:#ffeef3;
+            border-radius:8px;
+            padding:8px 12px;
+            margin-bottom:8px;
+            font-size:.95rem;
+        }
+
+        /* 5. 心跳动画 */
+        @keyframes heartBeat{
+            0%,100%{transform:scale(1);}
+            50%{transform:scale(1.15);}
+        }
+        .heart{
+            display:inline-block;
+            color:var(--theme);
+            font-size:1.4rem;
+            animation:heartBeat 1.2s infinite;
+        }
+
+        /* 响应式 */
+        @media(max-width:700px){
+            .timeline::before{left:20px;}
+            .item{width:100%;padding-left:70px;padding-right:20px;text-align:left !important;}
+            .item:nth-child(even){left:0;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- 1. 顶部 -->
+<header>
+    <div class="hero animate__animated animate__fadeIn">
+        <h1>吴新怡，我想给你的不止宇宙</h1>
+        <p>把所有温柔设置成仅你可见 <span class="heart">♥</span></p>
+        <button onclick="document.querySelector('#story').scrollIntoView({behavior:'smooth'})">开始悄悄话</button>
+    </div>
+</header>
+
+<!-- 2. 我们的故事 -->
+<section id="story">
+    <h2>我们的小时间</h2>
+    <div class="timeline">
+        <div class="item"><h3>2025.10.06</h3><p>我们在一起的第一天</p></div>
+        <div class="item"><h3>2025.11.30</h3><p>宝贝最不开心的一天</p></div>
+        <div class="item"><h3>2025.12.05</h3><p>今天宝贝没给我发消息，我一直在等</p></div>
+        <div class="item"><h3>今天</h3><p>把喜欢写成代码，托管给永远。</p></div>
+    </div>
+</section>
+
+<!-- 3. 照片墙 -->
+<section>
+    <h2>定格瞬间</h2>
+    <div class="gallery">
+        <!-- 把 src 换成你们的合照即可 -->
+        <img src="https://source.unsplash.com/400x400?couple" alt="photo">
+        <img src="https://source.unsplash.com/400x400?date" alt="photo">
+        <img src="https://source.unsplash.com/400x400?park" alt="photo">
+        <img src="https://source.unsplash.com/400x400?icecream" alt="photo">
+    </div>
+</section>
+
+<!-- 4. 悄悄话留言板 -->
+<section>
+    <h2>给未来的我们</h2>
+    <div class="msg-board">
+        <textarea id="words" placeholder="写点什么吧，只属于我们俩…"></textarea>
+        <button onclick="leaveMsg()">封存进星星</button>
+        <div id="msgs"></div>
+    </div>
+</section>
+
+<script>
+/* 时间轴滚动出现 */
+const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('show');});
+});
+document.querySelectorAll('.item').forEach(el=>io.observe(el));
+
+/* 留言板：简单本地存储，刷新仍在 */
+function leaveMsg(){
+    const txt=document.getElementById('words');
+    if(!txt.value.trim()) return;
+    const box=document.getElementById('msgs');
+    const div=document.createElement('div');
+    div.textContent=new Date().toLocaleString()+'  '+txt.value;
+    box.prepend(div);
+    localStorage['loveMsgs']=box.innerHTML;
+    txt.value='';
+}
+window.onload=()=>{
+    if(localStorage['loveMsgs']) document.getElementById('msgs').innerHTML=localStorage['loveMsgs'];
+};
+</script>
+</body>
+</html>
