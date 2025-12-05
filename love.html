@@ -111,134 +111,134 @@
         .gallery img{
             width:100%;
             border-radius:10px;
-            过渡:.4S;
-            光标:指针;
+            transition:.4s;
+            cursor:pointer;
         }
-        .画廊 百万毫克:盘旋{改变:规模(1.08);}
+        .gallery img:hover{transform:scale(1.08);}
 
         /* 4. 留言板 */
         .msg-board{
-            背景:#fff;
-            border-radius:15小卖部;
-            衬垫:30小卖部;
-            box-shadow:0 5小卖部 20小卖部 rgba 格式(0,0,0,.05);
+            background:#fff;
+            border-radius:15px;
+            padding:30px;
+            box-shadow:0 5px 20px rgba(0,0,0,.05);
         }
-        .msg-board 发短信{
-            宽度:100%;
-            高度:100小卖部;
-            边界:1小卖部 固体 #ffd0dc;
-            border-radius:8小卖部;
-            衬垫:10小卖部;
-            font-size:1快速眼动的;
-            改变的大小:没有一个;
+        .msg-board textarea{
+            width:100%;
+            height:100px;
+            border:1px solid #ffd0dc;
+            border-radius:8px;
+            padding:10px;
+            font-size:1rem;
+            resize:none;
         }
-        .msg-board 按钮{
-            margin-top:15小卖部;
-            背景:哪里(--theme);
-            颜色:#fff;
-            边界:没有一个;
-            衬垫:10小卖部 25小卖部;
-            border-radius:20小卖部;
-            光标:指针;
+        .msg-board button{
+            margin-top:15px;
+            background:var(--theme);
+            color:#fff;
+            border:none;
+            padding:10px 25px;
+            border-radius:20px;
+            cursor:pointer;
         }
-        #公司{
-            margin-top:20小卖部;
-            max-height:200小卖部;
-            overflow-y:汽车;
+        #msgs{
+            margin-top:20px;
+            max-height:200px;
+            overflow-y:auto;
         }
-        #公司 级{
-            背景:#ffeef3;
-            border-radius:8小卖部;
-            衬垫:8小卖部 12小卖部;
-            margin-bottom:8小卖部;
-            font-size:.95快速眼动的;
+        #msgs div{
+            background:#ffeef3;
+            border-radius:8px;
+            padding:8px 12px;
+            margin-bottom:8px;
+            font-size:.95rem;
         }
 
         /* 5. 心跳动画 */
-        @keyframes 心跳{
-            0%,100%{改变:规模(1);}
-            50%{改变:规模(1.15);}
+        @keyframes heartBeat{
+            0%,100%{transform:scale(1);}
+            50%{transform:scale(1.15);}
         }
-        .心{
-            显示:inline-block;
-            颜色:哪里(--theme);
-            font-size:1.4快速眼动的;
-            动画:心跳 1.2S 无限的;
+        .heart{
+            display:inline-block;
+            color:var(--theme);
+            font-size:1.4rem;
+            animation:heartBeat 1.2s infinite;
         }
 
         /* 响应式 */
-        @media(max-width:700小卖部){
-            .时间线::早于{左边:20小卖部;}
-            .项目{宽度:100%;padding-left:70小卖部;padding-right:20小卖部;text-align:左边 !important;}
-            .项目:nth-child(甚至){左边:0;}
+        @media(max-width:700px){
+            .timeline::before{left:20px;}
+            .item{width:100%;padding-left:70px;padding-right:20px;text-align:left !important;}
+            .item:nth-child(even){left:0;}
         }
-    </风格>
-</头>
-<身体>
+    </style>
+</head>
+<body>
 
 <!-- 1. 顶部 -->
-<标头>
-    <级 班级=“hero animate__动画animate__fadeIn”>
+<header>
+    <div class="hero animate__animated animate__fadeIn">
         <h1>吴新怡，我想给你的不止宇宙</h1>
-        <P>把所有温柔设置成仅你可见 <跨度 班级="heart">♥</跨度></P>
-        <按钮 单击onon="文档.查询选择器('#story').滚动视图({行为:'smooth'})">开始悄悄话</按钮>
-    </级>
-</标头>
+        <p>把所有温柔设置成仅你可见 <span class="heart">♥</span></p>
+        <button onclick="document.querySelector('#story').scrollIntoView({behavior:'smooth'})">开始悄悄话</button>
+    </div>
+</header>
 
 <!-- 2. 我们的故事 -->
-<部分 身份证="story">
+<section id="story">
     <h2>我们的小时间</h2>
-    <级 班级="timeline">
-        <级 班级="item"><h3>2025.10.06</h3><P>我们在一起的第一天</P></级>
-        <级 班级="item"><h3>2025.11.30</h3><P>宝贝最不开心的一天</P></级>
-        <级 班级="item"><h3>2025.12.05</h3><P>今天宝贝没给我发消息，我一直在等</P></级>
-        <级 班级="item"><h3>今天</h3><P>把喜欢写成代码，托管给永远。</P></级>
-    </级>
-</部分>
+    <div class="timeline">
+        <div class="item"><h3>2025.10.06</h3><p>我们在一起的第一天</p></div>
+        <div class="item"><h3>2025.11.30</h3><p>宝贝最不开心的一天</p></div>
+        <div class="item"><h3>2025.12.05</h3><p>今天宝贝没给我发消息，我一直在等</p></div>
+        <div class="item"><h3>今天</h3><p>把喜欢写成代码，托管给永远。</p></div>
+    </div>
+</section>
 
 <!-- 3. 照片墙 -->
-<部分>
+<section>
     <h2>定格瞬间</h2>
-    <级 班级="gallery">
+    <div class="gallery">
         <!-- 把 src 换成你们的合照即可 -->
-        <百万毫克 学生代表会="https://github.com/hll512/love/blob/main/mmexport1759766227679.jpg" 非典型脂肪瘤（alt）="photo">
-        <百万毫克 学生代表会="https://source.unsplash.com/400x400?date" 非典型脂肪瘤（alt）="photo">
-        <百万毫克 学生代表会="https://source.unsplash.com/400x400?park" 非典型脂肪瘤（alt）="photo">
-        <百万毫克 学生代表会="https://source.unsplash.com/400x400?icecream" 非典型脂肪瘤（alt）="photo">
-    </级>
-</部分>
+        <img src="https://github.com/hll512/love/blob/main/mmexport1759766227679.jpg" alt="photo">
+        <img src="https://github.com/hll512/love/blob/main/mmexport1759766229696.jpg" alt="photo">
+        <img src="https://github.com/hll512/love/blob/main/mmexport1759910525352.jpg" alt="photo">
+        <img src="https://github.com/hll512/love/blob/main/mmexport1760785902493.jpg" alt="photo">
+    </div>
+</section>
 
 <!-- 4. 悄悄话留言板 -->
-<部分>
+<section>
     <h2>给未来的我们</h2>
-    <级 班级="msg-board">
-        <发短信 身份证="words" 占位符="写点什么吧，只属于我们俩…"></发短信>
-        <按钮 单击onon="leaveMsg()">封存进星星</按钮>
-        <级 身份证="msgs"></级>
-    </级>
-</部分>
+    <div class="msg-board">
+        <textarea id="words" placeholder="写点什么吧，只属于我们俩…"></textarea>
+        <button onclick="leaveMsg()">封存进星星</button>
+        <div id="msgs"></div>
+    </div>
+</section>
 
-<剧本>
+<script>
 /* 时间轴滚动出现 */
-康斯特 输入输出=新的 交叉观察者(进入=>{
-    进入.为了(E=>{如果(E.相交) E.目标.班级名册.增加('show');});
+const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('show');});
 });
-文档.中国('.item').为了(埃尔=>输入输出.观察(埃尔));
+document.querySelectorAll('.item').forEach(el=>io.observe(el));
 
 /* 留言板：简单本地存储，刷新仍在 */
-功能 leaveMsg(){
-加载时
-查询为空
-查询为空
-查询为空
-如果 查询为空
-文档
-当地储存
-身体
+function leaveMsg(){
+    const txt=document.getElementById('words');
+    if(!txt.value.trim()) return;
+    const box=document.getElementById('msgs');
+    const div=document.createElement('div');
+    div.textContent=new Date().toLocaleString()+'  '+txt.value;
+    box.prepend(div);
+    localStorage['loveMsgs']=box.innerHTML;
+    txt.value='';
 }
-.
-加载时
-;
-</
-</
-</
+window.onload=()=>{
+    if(localStorage['loveMsgs']) document.getElementById('msgs').innerHTML=localStorage['loveMsgs'];
+};
+</script>
+</body>
+</html>
