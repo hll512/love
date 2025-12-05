@@ -195,7 +195,16 @@
         <div class="item"><h3>今天</h3><p>把喜欢写成代码，托管给永远。</p></div>
     </div>
 </section>
+<!-- 背景音乐 -->
+<audio id="bgMusic" loop>
+  <source src="https://raw.githubusercontent.com/hll512/love/main/特别的人-方大同-汽水音乐.mp3" type="audio/mpeg">
+  您的浏览器不支持音频播放。
+</audio>
 
+<!-- 音乐开关 -->
+<div style="position:fixed;bottom:20px;right:20px;z-index:999;">
+  <button id="musicBtn" onclick="toggleMusic()" style="border:none;background:#ff9ebb;color:#fff;width:50px;height:50px;border-radius:50%;font-size:20px;">♪</button>
+</div>
 <!-- 3. 照片墙 -->
 <section>
     <h2>定格瞬间</h2>
